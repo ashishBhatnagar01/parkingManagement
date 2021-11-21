@@ -27,14 +27,27 @@ function RegistrationForm(){
     }
     else{
       const response= await axios.post('https://vehicle-parking-management.herokuapp.com/adduser',userData);
-      console.log(response);
-      swal({
-          title: "Registration Successful!",
+      console.log(response.data.message);
+      if(response.data.message==='User already exist in database')
+      {
+        swal({
+          title:`${response.data.message}`,
+          icon: "error",
+          button: "Aww yiss!",
+        }).then(function(){
+            window.location="/register"
+        })
+      }
+      else{
+        swal({
+          title:`${response.data.message}`,
           icon: "success",
           button: "Aww yiss!",
         }).then(function(){
-            window.location="/movies"
+            window.location="/register"
         })
+      }
+
     }
   }
     return(
