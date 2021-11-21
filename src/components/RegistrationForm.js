@@ -26,7 +26,7 @@ function RegistrationForm(){
       alert("Password and confirm password should be same");
     }
     else{
-      const response= await axios.post('http://localhost:5000/adduser',userData);
+      const response= await axios.post('https://bms-backend2.herokuapp.com/adduser',userData);
       console.log(response);
       swal({
           title: "Registration Successful!",
