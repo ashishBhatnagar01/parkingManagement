@@ -1,3 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  text-decoration: none;
+}
+.text-inherit{
+  color: inherit;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 body{
   background-color: black;
   text-decoration: none;

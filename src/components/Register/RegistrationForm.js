@@ -26,34 +26,24 @@ function RegistrationForm(){
       alert("Password and confirm password should be same");
     }
     else{
-      const response= await axios.post('https://vehicle-parking-management.herokuapp.com/adduser',userData);
+      const response= await axios.post('http://localhost:4000/auth/signup',userData);
       console.log(response.data.message);
-      if(response.data.message==='User already exist in database')
-      {
         swal({
           title:`${response.data.message}`,
-          icon: "error",
+          icon:  `${response.data.icon}`,
           button: "Aww yiss!",
         }).then(function(){
             window.location="/register"
         })
-      }
-      else{
-        swal({
-          title:`${response.data.message}`,
-          icon: "success",
-          button: "Aww yiss!",
-        }).then(function(){
-            window.location="/register"
-        })
-      }
 
     }
   }
     return(
         <Container fluid className="bg-dark">
+
           <div className="registration">
           <div className="registrationForm">
+            
             <div className="icon">
               <i className="fa fa-user-circle regLogo" aria-hidden="true"></i>
             </div>
@@ -82,6 +72,7 @@ function RegistrationForm(){
               <Form.Group className="" >
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+              
               </Form.Group>
               </Col>
               <Col>
@@ -112,6 +103,7 @@ function RegistrationForm(){
         </div>
         </div>
         </div>
+    
         </Container>
         
       ); 

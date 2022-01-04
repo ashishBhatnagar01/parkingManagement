@@ -5,7 +5,9 @@ import {
   Route,
   Switch
 } from "react-router-dom";
-import RegistrationForm from './components/RegistrationForm';
+import RegistrationForm from './components/Register/RegistrationForm';
+import NavBar from './components/HomePage/NavBar';
+import HomeSlider from "./components/HomePage/Content"
 function App() {
   return (
     <Router>
@@ -16,6 +18,10 @@ function App() {
         </Route>
         <Route exact path="/register">
           <RegistrationForm/>
+        </Route>
+        <Route exact path="/">
+          <NavBar/>
+          <HomeSlider/>
         </Route>
       </Switch>
       </div>
